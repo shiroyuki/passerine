@@ -52,3 +52,15 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Old list
+MANIFEST
+dist
+.idea
+.DS_Store
+*.pyc
+docs/build/*
+*.komodoproject
+build
+.coverage
+test/report
