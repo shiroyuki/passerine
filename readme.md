@@ -1,16 +1,12 @@
-# Tori Framework
+# Grosbeak
 
-## CI Build Status (Current Branch)
+A library for object relational mapping and data abstraction layer for Python.
 
-[![Build Status](https://travis-ci.org/shiroyuki/Tori.png?branch=master)](https://travis-ci.org/shiroyuki/Tori)
-
-## Manual/Reference
-
-See [the official documentation](https://tori.readthedocs.org/en/latest/) for the documentation.
+This is forked and spun off from Tori 3.0 (shiroyuki/Tori).
 
 ## MIT License (OSS Approved)
 
-Copyright (c) 2012-2013 Juti Noppornpitak
+Copyright (c) 2012-2014 Juti Noppornpitak
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
