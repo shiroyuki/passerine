@@ -6,7 +6,6 @@ import re
 
 from imagination.loader    import Loader
 from tori.centre           import services
-from tori.decorator.common import singleton
 from tori.exception        import LoadedFixtureException
 
 class Fixture(object):
