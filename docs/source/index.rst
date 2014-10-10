@@ -3,48 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Tori Framework
-==============
+Codename Grosbeak
+=================
 
 :Author: Juti Noppornpitak <jnopporn@shiroyuki.com>
 
-Tori is a collection of libraries, micro web framework based on Facebook's
-Tornado framework 2.x and the ORM for MongoDB and supports Python 2.7+ and
-Python 3.3+. (Read more from the :doc:`manual/introduction`.)
+A generic object relational mapper (ORM) and data abstraction layer (DAL) primarily designed for NoSQL databases.
 
-How to Install?
----------------
-
-See **Installation** from :doc:`manual/getting_started`.
-
-What's next?
-------------
-
-Read:
-
-- :doc:`manual/index` to get started and learn how to use it.
-- :doc:`api/index` to get the reference on APIs and methods.
-- :doc:`changes` to see what have been changed.
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   :hidden:
-
-   manual/index
-   api/index
-   changes
-
-Not working after upgrade?
---------------------------
-
-File a bug at `Tori on GitHub <https://github.com/shiroyuki/Tori>`_.
-
-What if the documentation is suck or the code is buggy?
--------------------------------------------------------
-
-If the document is unclear or missing or needs improvement, please help us by
-contributing to the codebase of `Tori on GitHub <https://github.com/shiroyuki/Tori>`_.
+.. note:: This is a fork from Tori Framework for object-relational mapping.
+.. warning:: Not ready for production
 
 Special Thanks
 --------------
