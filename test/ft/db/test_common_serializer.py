@@ -1,7 +1,7 @@
 import unittest
 from bson import ObjectId
-from grosbeak.db.common import Serializer, PseudoObjectId
-from grosbeak.db.entity import entity
+from passerine.db.common import Serializer, PseudoObjectId
+from passerine.db.entity import entity
 
 @entity
 class Document(object):

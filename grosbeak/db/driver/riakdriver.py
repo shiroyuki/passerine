@@ -1,6 +1,6 @@
 from riak import RiakClient
-from grosbeak.db.manager import register_driver as driver
-from grosbeak.db.driver.interface import DriverInterface
+from passerine.db.manager import register_driver as driver
+from passerine.db.driver.interface import DriverInterface
 
 @driver('mongodb')
 class Driver(DriverInterface):

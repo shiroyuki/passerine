@@ -6,9 +6,9 @@
 
 from bson import ObjectId
 
-from grosbeak.data.serializer import ArraySerializer
-from grosbeak.db.exception import ReadOnlyProxyException
-from grosbeak.db.metadata.helper import EntityMetadataHelper
+from passerine.data.serializer import ArraySerializer
+from passerine.db.exception import ReadOnlyProxyException
+from passerine.db.metadata.helper import EntityMetadataHelper
 
 class Serializer(ArraySerializer):
     """ Object Serializer for Entity
@@ -150,7 +150,7 @@ class ProxyObject(object):
         is required.
 
         :param session: the managed session
-        :type  session: grosbeak.db.session.Session
+        :type  session: passerine.db.session.Session
         :param cls: the class to map the data
         :type  cls: type
         :param object_id: the object ID
@@ -210,11 +210,11 @@ class ProxyCollection(list):
         designed to only load the associated data whenever is required.
 
         :param session: the managed session
-        :type  session: grosbeak.db.session.Session
+        :type  session: passerine.db.session.Session
         :param origin: the origin of the association
         :type  origin: object
         :param guide: the relational guide
-        :type  guide: grosbeak.db.mapper.RelatingGuide
+        :type  guide: passerine.db.mapper.RelatingGuide
 
         .. note:: To replace with criteria and driver
     """
@@ -230,7 +230,7 @@ class ProxyCollection(list):
             .. warning::
 
                 This method is **not recommended** to be called directly. Use
-                :meth:`grosbeak.db.session.Session.refresh` on the owned object
+                :meth:`passerine.db.session.Session.refresh` on the owned object
                 instead.
         """
         while len(self):
@@ -312,10 +312,10 @@ class ProxyFactory(object):
         This factory is to create a proxy object.
 
         :param session: the managed session
-        :type  session: grosbeak.db.session.Session
+        :type  session: passerine.db.session.Session
         :param id: the object ID
         :param mapping_guide: the relational guide
-        :type  mapping_guide: grosbeak.db.mapper.RelatingGuide
+        :type  mapping_guide: passerine.db.mapper.RelatingGuide
     """
     @staticmethod
     def make(session, id, mapping_guide):

@@ -1,11 +1,11 @@
 from ft.db.dbtestcase import DbTestCase
-from grosbeak.db.session import Session
-from grosbeak.db.common import ProxyObject
-from grosbeak.db.uow import Record
-from grosbeak.db.entity import entity
-from grosbeak.db.manager import Manager
-from grosbeak.db.mapper import link, CascadingType, AssociationType
-from grosbeak.db.metadata.helper import EntityMetadataHelper
+from passerine.db.session import Session
+from passerine.db.common import ProxyObject
+from passerine.db.uow import Record
+from passerine.db.entity import entity
+from passerine.db.manager import Manager
+from passerine.db.mapper import link, CascadingType, AssociationType
+from passerine.db.metadata.helper import EntityMetadataHelper
 
 @link(
     mapped_by='groups',

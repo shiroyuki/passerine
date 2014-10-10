@@ -1,10 +1,10 @@
 from ft.db.dbtestcase import DbTestCase
-from grosbeak.db.session import Session
-from grosbeak.db.repository import Repository
-from grosbeak.db.common import ProxyObject
-from grosbeak.db.entity   import entity
-from grosbeak.db.manager    import Manager
-from grosbeak.db.mapper     import AssociationType, link
+from passerine.db.session import Session
+from passerine.db.repository import Repository
+from passerine.db.common import ProxyObject
+from passerine.db.entity   import entity
+from passerine.db.manager    import Manager
+from passerine.db.mapper     import AssociationType, link
 
 @entity('s')
 class Skill(object):

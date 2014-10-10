@@ -1,9 +1,9 @@
 from ft.db.dbtestcase import DbTestCase
-from grosbeak.db.session import Session
-from grosbeak.db.entity import entity
-from grosbeak.db.manager import Manager
-from grosbeak.db.exception import UOWRepeatedRegistrationError, UOWUnknownRecordError
-from grosbeak.db.uow import Record
+from passerine.db.session import Session
+from passerine.db.entity import entity
+from passerine.db.manager import Manager
+from passerine.db.exception import UOWRepeatedRegistrationError, UOWUnknownRecordError
+from passerine.db.uow import Record
 
 @entity
 class TestClass(object):

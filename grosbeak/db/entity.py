@@ -3,9 +3,9 @@
 """
 import inspect
 from imagination.decorator.validator import restrict_type
-from grosbeak.db.common    import PseudoObjectId
-from grosbeak.db.exception import LockedIdException
-from grosbeak.db.metadata.helper import EntityMetadataHelper
+from passerine.db.common    import PseudoObjectId
+from passerine.db.exception import LockedIdException
+from passerine.db.metadata.helper import EntityMetadataHelper
 
 def get_collection_name(cls):
     raise RuntimeError('obsolete')

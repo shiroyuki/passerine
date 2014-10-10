@@ -37,8 +37,8 @@ class ExpressionType(object):
 class Expression(DataObject):
     """ Query Expression
 
-        :param grosbeak.db.expression.ExpressionPart left:  the left part
-        :param grosbeak.db.expression.ExpressionPart right: the right part
+        :param passerine.db.expression.ExpressionPart left:  the left part
+        :param passerine.db.expression.ExpressionPart right: the right part
         :param str operand: the generic operand
     """
     def __init__(self, left, operand, right):

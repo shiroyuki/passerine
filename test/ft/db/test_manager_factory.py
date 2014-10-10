@@ -5,10 +5,10 @@ try:
 except ImportError as exception:
     from mock import Mock, MagicMock, patch # Python 2.7
 
-from grosbeak.db.manager import ManagerFactory
-from grosbeak.db.session import Session
-from grosbeak.db.exception import InvalidUrlError
-from grosbeak.db.driver.mongodriver import Driver
+from passerine.db.manager import ManagerFactory
+from passerine.db.session import Session
+from passerine.db.exception import InvalidUrlError
+from passerine.db.driver.mongodriver import Driver
 
 class TestFunctional(TestCase):
     def setUp(self):

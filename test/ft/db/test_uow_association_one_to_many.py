@@ -1,9 +1,9 @@
 from ft.db.dbtestcase import DbTestCase
-from grosbeak.db.session import Session
-from grosbeak.db.common import ProxyObject
-from grosbeak.db.uow import Record
-from grosbeak.db.entity import entity
-from grosbeak.db.mapper import link, CascadingType, AssociationType
+from passerine.db.session import Session
+from passerine.db.common import ProxyObject
+from passerine.db.uow import Record
+from passerine.db.entity import entity
+from passerine.db.mapper import link, CascadingType, AssociationType
 
 @entity('test_db_uow_ass_one_to_many_computer')
 class Computer(object):

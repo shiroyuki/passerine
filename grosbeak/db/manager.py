@@ -2,9 +2,9 @@ import re
 from bson.objectid import ObjectId
 from imagination.loader import Loader
 from imagination.decorator.validator import restrict_type
-from grosbeak.db.driver.interface import DriverInterface
-from grosbeak.db.session import Session
-from grosbeak.db.exception import InvalidUrlError, UnknownDriverError
+from passerine.db.driver.interface import DriverInterface
+from passerine.db.session import Session
+from passerine.db.exception import InvalidUrlError, UnknownDriverError
 
 class ManagerFactory(object):
     def __init__(self, protocol_to_driver_map = None):
@@ -21,7 +21,7 @@ class ManagerFactory(object):
     @property
     def _default_protocol_to_driver_map(self):
         return {
-            'mongodb': 'grosbeak.db.driver.mongodriver.Driver'
+            'mongodb': 'passerine.db.driver.mongodriver.Driver'
         }
 
     def register(self, protocol, driver_class):
@@ -73,7 +73,7 @@ class Manager(object):
     """ Entity Manager
 
         :param driver: the driver interface
-        :type  driver: grosbeak.db.driver.interface.DriverInterface
+        :type  driver: passerine.db.driver.interface.DriverInterface
     """
     def __init__(self, driver):
         assert isinstance(driver, DriverInterface) or issubclass(driver, DriverInterface), \
@@ -86,7 +86,7 @@ class Manager(object):
     def driver(self):
         """ Driver API
 
-        :rtype: grosbeak.db.driver.interface.DriverInterface
+        :rtype: passerine.db.driver.interface.DriverInterface
         """
         return self._driver
 

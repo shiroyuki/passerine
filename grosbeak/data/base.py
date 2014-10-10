@@ -1,7 +1,7 @@
 from mimetypes import guess_type as get_type
 from os        import path as p
 from imagination.helper import retrieve_module_path
-from grosbeak.exception import *
+from passerine.exception import *
 
 module_path_map = {}
 

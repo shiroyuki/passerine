@@ -1,4 +1,4 @@
-from grosbeak.db.metadata.entity import EntityMetadata
+from passerine.db.metadata.entity import EntityMetadata
 
 class EntityMetadataHelper(object):
     """ Entity Metadata Helper """
@@ -27,7 +27,7 @@ class EntityMetadataHelper(object):
 
             :param cls: the entity class
             :type  cls: type
-            :rtype:     grosbeak.db.metadata.entity.EntityMetadata
+            :rtype:     passerine.db.metadata.entity.EntityMetadata
         """
         return cls.__tdbm__
 

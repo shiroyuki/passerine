@@ -23,7 +23,7 @@ class QuerySequence(object):
     def add(self, iteration):
         """ Append the the iteration
 
-            :param grosbeak.db.driver.interface.QueryIteration iteration: the query iteration
+            :param passerine.db.driver.interface.QueryIteration iteration: the query iteration
         """
         self._iterations.append(iteration)
 
@@ -51,7 +51,7 @@ class DialectInterface(object):
     def get_alias_to_native_query_map(self, query):
         """ Retrieve a map from alias to native query.
 
-            :param grosbeak.db.criteria.Query: the query object
+            :param passerine.db.criteria.Query: the query object
             :rtype: dict
         """
         expression_set = query.criteria.get_analyzed_version()
@@ -119,8 +119,8 @@ class DialectInterface(object):
 
             :param dict alias_to_conditions_map:            a alias-to-conditions map
             :param dict definition_map:                     a parameter-to-value map
-            :param grosbeak.db.expression.ExpressionPart left:  the left expression
-            :param grosbeak.db.expression.ExpressionPart right: the right expression
+            :param passerine.db.expression.ExpressionPart left:  the left expression
+            :param passerine.db.expression.ExpressionPart right: the right expression
             :param operand:                                 the native operand
 
             :raise NotImplemented: only if the interface is not overridden.
@@ -133,7 +133,7 @@ class DriverInterface(object):
     """ The abstract driver interface
 
         :param dict config: the configuration used to initialize the database connection / client
-        :param grosbeak.db.driver.interface.DialectInterface dialect: the corresponding dialect
+        :param passerine.db.driver.interface.DialectInterface dialect: the corresponding dialect
     """
     def __init__(self, config, dialect):
         self._config = config

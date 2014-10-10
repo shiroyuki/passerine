@@ -4,19 +4,19 @@
 :Status: Stable
 """
 import inspect
-from grosbeak.db.common    import PseudoObjectId, ProxyObject
-from grosbeak.db.criteria  import Query, Order
-from grosbeak.db.exception import MissingObjectIdException, EntityAlreadyRecognized, EntityNotRecognized
-from grosbeak.db.mapper    import AssociationType, CascadingType
-from grosbeak.db.uow       import Record
-from grosbeak.db.metadata.helper import EntityMetadataHelper
+from passerine.db.common    import PseudoObjectId, ProxyObject
+from passerine.db.criteria  import Query, Order
+from passerine.db.exception import MissingObjectIdException, EntityAlreadyRecognized, EntityNotRecognized
+from passerine.db.mapper    import AssociationType, CascadingType
+from passerine.db.uow       import Record
+from passerine.db.metadata.helper import EntityMetadataHelper
 
 class Repository(object):
     """
     Repository (Entity AbstractRepository) for Mongo DB
 
     :param session: the entity manager
-    :type  session: grosbeak.db.session.Session
+    :type  session: passerine.db.session.Session
     :param representing_class: the representing class
     :type  representing_class: type
 
@@ -40,7 +40,7 @@ class Repository(object):
     def session(self):
         """ Session
 
-            :rtype: grosbeak.db.session.Session
+            :rtype: passerine.db.session.Session
         """
         return self._session
 
@@ -122,7 +122,7 @@ class Repository(object):
         """ Find entity with criteria
 
             :param criteria: the search criteria
-            :type  criteria: grosbeak.db.criteria.Query
+            :type  criteria: passerine.db.criteria.Query
             :param force_loading: the flag to force loading all references behind the proxy
             :type  force_loading: bool
 
@@ -160,7 +160,7 @@ class Repository(object):
         """ Count the number of entities satisfied the given criteria
 
             :param criteria: the search criteria
-            :type  criteria: grosbeak.db.criteria.Query
+            :type  criteria: passerine.db.criteria.Query
 
             :rtype: int
         """
@@ -265,7 +265,7 @@ class Repository(object):
     def new_criteria(self, alias='e'):
         """ Create a criteria
 
-            :rtype: :class:`grosbeak.db.criteria.Query`
+            :rtype: :class:`passerine.db.criteria.Query`
         """
 
         c = Query(alias)
@@ -281,7 +281,7 @@ class Repository(object):
         """ Index data
 
             :param index: the index
-            :type  index: list, grosbeak.db.entity.Index or str
+            :type  index: list, passerine.db.entity.Index or str
             :param force_index: force indexing if necessary
             :type  force_index: bool
         """

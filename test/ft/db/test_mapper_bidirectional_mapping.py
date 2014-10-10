@@ -1,8 +1,8 @@
 from ft.db.dbtestcase import DbTestCase
-from grosbeak.db.common import ProxyObject
-from grosbeak.db.entity import entity
-from grosbeak.db.exception import ReadOnlyProxyException
-from grosbeak.db.mapper import link, CascadingType, AssociationType
+from passerine.db.common import ProxyObject
+from passerine.db.entity import entity
+from passerine.db.exception import ReadOnlyProxyException
+from passerine.db.mapper import link, CascadingType, AssociationType
 
 @link(
     mapped_by='destinations',

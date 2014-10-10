@@ -1,8 +1,8 @@
 """
-:mod:`grosbeak.db.criteria` -- Query Criteria
+:mod:`passerine.db.criteria` -- Query Criteria
 =========================================
 
-.. module:: grosbeak.db.criteria
+.. module:: passerine.db.criteria
    :platform: All
    :synopsis: The metadata for querying data from the backend data storage
 .. moduleauthor:: Juti Noppornpitak <jnopporn@shiroyuki.com>
@@ -10,7 +10,7 @@
 
 import pymongo
 from imagination.decorator.validator import restrict_type
-from grosbeak.db.expression import Criteria
+from passerine.db.expression import Criteria
 
 class Order(object):
     """ Sorting Order Definition """
@@ -180,7 +180,7 @@ class Query(object):
     def new_criteria(self):
         """ Get a new expression for this criteria
 
-            :rtype: grosbeak.db.expression.Criteria
+            :rtype: passerine.db.expression.Criteria
         """
         return Criteria()
 

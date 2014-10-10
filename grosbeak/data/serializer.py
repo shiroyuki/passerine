@@ -1,4 +1,4 @@
-from grosbeak.decorator.common import singleton
+from passerine.decorator.common import singleton
 
 @singleton
 class ArraySerializer(object):

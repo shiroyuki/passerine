@@ -1,6 +1,6 @@
 from re import search, sub, split
 
-from grosbeak.data.base import ResourceServiceMiddleware
+from passerine.data.base import ResourceServiceMiddleware
 
 class CSSCompressor(ResourceServiceMiddleware):
     def __init__(self):

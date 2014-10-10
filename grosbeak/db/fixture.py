@@ -5,8 +5,8 @@
 import re
 
 from imagination.loader    import Loader
-from grosbeak.centre           import services
-from grosbeak.exception        import LoadedFixtureException
+from passerine.centre           import services
+from passerine.exception        import LoadedFixtureException
 
 class Fixture(object):
     """

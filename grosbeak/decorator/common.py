@@ -5,7 +5,7 @@ This package contains decorators for common use.
 """
 
 import inspect
-from   grosbeak.exception import *
+from   passerine.exception import *
 
 class BaseDecoratorForCallableObject(object):
     """

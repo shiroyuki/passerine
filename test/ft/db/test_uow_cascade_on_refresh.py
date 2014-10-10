@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from ft.db.dbtestcase import DbTestCase
-from grosbeak.db.session import Session
-from grosbeak.db.entity  import entity
-from grosbeak.db.mapper  import link, CascadingType, AssociationType
+from passerine.db.session import Session
+from passerine.db.entity  import entity
+from passerine.db.mapper  import link, CascadingType, AssociationType
 
 @link(
     mapped_by='region',
