@@ -22,7 +22,7 @@ resources['flask_template_index.html'] = zlib.decompress(base64.b64decode('eNqVk
 
 import argparse
 import sys
-from tori.cli.console import Console as BaseConsole
+from grosbeak.cli.console import Console as BaseConsole
 
 class Console(BaseConsole):
     def __init__(self):
@@ -75,7 +75,7 @@ class Console(BaseConsole):
 
 # flask.app.create
 import os
-from tori.cli.command import Command
+from grosbeak.cli.command import Command
 from jinja2 import Template
 
 class FlaskCreateSkeletonApp(Command):
@@ -142,9 +142,9 @@ class FlaskCreateSkeletonApp(Command):
 
             os.makedirs(directory)
 
-# tori.app.create
+# grosbeak.app.create
 import os
-from tori.cli.command import Command
+from grosbeak.cli.command import Command
 from jinja2 import Template
 
 class ToriCreateSkeletonApp(Command):
@@ -217,7 +217,7 @@ class ToriCreateSkeletonApp(Command):
 
 modules = dict()
 
-modules['tori.app.create'] = ToriCreateSkeletonApp
+modules['grosbeak.app.create'] = ToriCreateSkeletonApp
 modules['flask.app.create'] = FlaskCreateSkeletonApp
 
 if __name__ == '__main__':

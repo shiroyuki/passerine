@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from ft.db.dbtestcase import DbTestCase
-from tori.db.session import Session
-from tori.db.entity  import entity
-from tori.db.mapper  import link, CascadingType, AssociationType
+from grosbeak.db.session import Session
+from grosbeak.db.entity  import entity
+from grosbeak.db.mapper  import link, CascadingType, AssociationType
 
 @link(
     mapped_by='region',

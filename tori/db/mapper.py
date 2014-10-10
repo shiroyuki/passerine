@@ -8,8 +8,8 @@
 """
 import hashlib
 from imagination.loader import Loader
-from tori.db.exception import DuplicatedRelationalMapping
-from tori.db.metadata.helper import EntityMetadataHelper
+from grosbeak.db.exception import DuplicatedRelationalMapping
+from grosbeak.db.metadata.helper import EntityMetadataHelper
 
 class AssociationType(object):
     """ Association Type """
@@ -59,7 +59,7 @@ class AssociationFactory(object):
     class_name_tmpl      = '{origin_module}{origin}{destination_module}{destination}'
     collection_name_tmpl = '{origin}_{destination}'
     code_template        = '\n'.join([
-        'from tori.db.entity import BasicAssociation, entity',
+        'from grosbeak.db.entity import BasicAssociation, entity',
         '@entity("{collection_name}")',
         'class {class_name}(BasicAssociation): pass'
     ])

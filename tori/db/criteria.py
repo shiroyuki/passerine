@@ -1,8 +1,8 @@
 """
-:mod:`tori.db.criteria` -- Query Criteria
+:mod:`grosbeak.db.criteria` -- Query Criteria
 =========================================
 
-.. module:: tori.db.criteria
+.. module:: grosbeak.db.criteria
    :platform: All
    :synopsis: The metadata for querying data from the backend data storage
 .. moduleauthor:: Juti Noppornpitak <jnopporn@shiroyuki.com>
@@ -10,7 +10,7 @@
 
 import pymongo
 from imagination.decorator.validator import restrict_type
-from tori.db.expression import Criteria
+from grosbeak.db.expression import Criteria
 
 class Order(object):
     """ Sorting Order Definition """
@@ -180,7 +180,7 @@ class Query(object):
     def new_criteria(self):
         """ Get a new expression for this criteria
 
-            :rtype: tori.db.expression.Criteria
+            :rtype: grosbeak.db.expression.Criteria
         """
         return Criteria()
 

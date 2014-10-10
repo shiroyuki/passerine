@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from time      import time
 from threading import Lock as ThreadLock
-from tori.graph import DependencyNode as BaseDependencyNode, DependencyManager
-from tori.db.common    import Serializer, PseudoObjectId, ProxyObject
-from tori.db.entity    import BasicAssociation
-from tori.db.exception import UOWRepeatedRegistrationError, UOWUpdateError, UOWUnknownRecordError, IntegrityConstraintError
-from tori.db.mapper    import CascadingType
-from tori.db.metadata.helper import EntityMetadataHelper
+from grosbeak.graph import DependencyNode as BaseDependencyNode, DependencyManager
+from grosbeak.db.common    import Serializer, PseudoObjectId, ProxyObject
+from grosbeak.db.entity    import BasicAssociation
+from grosbeak.db.exception import UOWRepeatedRegistrationError, UOWUpdateError, UOWUnknownRecordError, IntegrityConstraintError
+from grosbeak.db.mapper    import CascadingType
+from grosbeak.db.metadata.helper import EntityMetadataHelper
 
 class Record(object):
     serializer = Serializer(0)
@@ -547,7 +547,7 @@ class UnitOfWork(object):
         origin is from the entity from the current record.
 
         :param record: the UOW record
-        :type  record: tori.db.uow.Record
+        :type  record: grosbeak.db.uow.Record
         """
         current  = Record.serializer.extra_associations(record.entity)
         original = dict(record.original_extra_association)

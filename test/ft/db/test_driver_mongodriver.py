@@ -1,10 +1,10 @@
 from ft.db.dbtestcase   import DbTestCase, skip
-from tori.db.session    import Session
-from tori.db.repository import Repository
-from tori.db.common     import ProxyObject
-from tori.db.entity     import entity
-from tori.db.manager    import Manager
-from tori.db.mapper     import AssociationType, link
+from grosbeak.db.session    import Session
+from grosbeak.db.repository import Repository
+from grosbeak.db.common     import ProxyObject
+from grosbeak.db.entity     import entity
+from grosbeak.db.manager    import Manager
+from grosbeak.db.mapper     import AssociationType, link
 
 @entity('skills')
 class Skill(object):

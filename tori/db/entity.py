@@ -3,9 +3,9 @@
 """
 import inspect
 from imagination.decorator.validator import restrict_type
-from tori.db.common    import PseudoObjectId
-from tori.db.exception import LockedIdException
-from tori.db.metadata.helper import EntityMetadataHelper
+from grosbeak.db.common    import PseudoObjectId
+from grosbeak.db.exception import LockedIdException
+from grosbeak.db.metadata.helper import EntityMetadataHelper
 
 def get_collection_name(cls):
     raise RuntimeError('obsolete')

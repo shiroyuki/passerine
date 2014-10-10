@@ -1,6 +1,6 @@
 from re import search, sub, split
 
-from tori.data.base import ResourceServiceMiddleware
+from grosbeak.data.base import ResourceServiceMiddleware
 
 class CSSCompressor(ResourceServiceMiddleware):
     def __init__(self):

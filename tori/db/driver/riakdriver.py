@@ -1,6 +1,6 @@
 from riak import RiakClient
-from tori.db.manager import register_driver as driver
-from tori.db.driver.interface import DriverInterface
+from grosbeak.db.manager import register_driver as driver
+from grosbeak.db.driver.interface import DriverInterface
 
 @driver('mongodb')
 class Driver(DriverInterface):

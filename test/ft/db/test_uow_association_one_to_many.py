@@ -1,9 +1,9 @@
 from ft.db.dbtestcase import DbTestCase
-from tori.db.session import Session
-from tori.db.common import ProxyObject
-from tori.db.uow import Record
-from tori.db.entity import entity
-from tori.db.mapper import link, CascadingType, AssociationType
+from grosbeak.db.session import Session
+from grosbeak.db.common import ProxyObject
+from grosbeak.db.uow import Record
+from grosbeak.db.entity import entity
+from grosbeak.db.mapper import link, CascadingType, AssociationType
 
 @entity('test_db_uow_ass_one_to_many_computer')
 class Computer(object):

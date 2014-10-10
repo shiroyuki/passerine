@@ -12,25 +12,25 @@ Version 3.1
 
 :Release Date: TBA
 
-- Possibly removed ``tori.db.session.Session.register_class(...)``.
+- Possibly removed ``grosbeak.db.session.Session.register_class(...)``.
 
 Version 3.0
 ===========
 
 :Release Date: 2014.08.16
 
-- **ORM/tori.db**: Allow cross-collection (or cross-repository) queries within the same type of backend datastores.
-- **ORM/tori.db**: (**BCB-2.1**) Removed the silly preconditions of the setup of ORM.
-- **ORM/tori.db**: (**BCB-2.1**) The setup of ORM becomes more generic in order to support multiple drivers.
-- **ORM/tori.db**: (**BCB-2.1**) No auto indexing.
-- **ORM/tori.db**: (**BCB-2.1**) The query mechanism is changed to reduce the direct access to PyMongo APIs directly. It
-  will be a **BCB** if the code that uses :class:`tori.db.criteria.Criteria` instantiates the class directly.
-- **ORM/tori.db**: (**BCB-2.1**) Class **Criteria** has been renamed to **Query** as the internal class will be labeled
+- **ORM/grosbeak.db**: Allow cross-collection (or cross-repository) queries within the same type of backend datastores.
+- **ORM/grosbeak.db**: (**BCB-2.1**) Removed the silly preconditions of the setup of ORM.
+- **ORM/grosbeak.db**: (**BCB-2.1**) The setup of ORM becomes more generic in order to support multiple drivers.
+- **ORM/grosbeak.db**: (**BCB-2.1**) No auto indexing.
+- **ORM/grosbeak.db**: (**BCB-2.1**) The query mechanism is changed to reduce the direct access to PyMongo APIs directly. It
+  will be a **BCB** if the code that uses :class:`grosbeak.db.criteria.Criteria` instantiates the class directly.
+- **ORM/grosbeak.db**: (**BCB-2.1**) Class **Criteria** has been renamed to **Query** as the internal class will be labeled
   as **Criteria**. This change is to address the semantic / readability issue. (Hence, all references to Criteria objects
   are now referred to Query objects.)
-- **ORM/tori.db**: Removed unused / tedious code from the ORM.
+- **ORM/grosbeak.db**: Removed unused / tedious code from the ORM.
 - **Web Framework**: (**BCB-2.1**) The **simple routing scheme** is now default instead of the **regular expression** originally used by Tornado. (The router class will take care of the translation.)
-- **Web Framework**: The first instance of :class:`tori.application.Application` is now self-referenced as ``tori.centre.core``.
+- **Web Framework**: The first instance of :class:`grosbeak.application.Application` is now self-referenced as ``grosbeak.centre.core``.
 - **Web Framework**: Add a file-base session repository. This allows the app to store the session data as a json file.
 - **Web Framework**: Without specifying the rendering path for each controller, the controller will be looking for
   templates from :file:`<app_base_path>/templates`.
@@ -48,7 +48,7 @@ configuration tree is:
 
     {
         "session": {
-            "class": "tori.session.repository.memory.Memory"
+            "class": "grosbeak.session.repository.memory.Memory"
             "params": {}
         }
         "db": {

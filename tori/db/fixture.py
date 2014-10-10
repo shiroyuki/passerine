@@ -5,8 +5,8 @@
 import re
 
 from imagination.loader    import Loader
-from tori.centre           import services
-from tori.exception        import LoadedFixtureException
+from grosbeak.centre           import services
+from grosbeak.exception        import LoadedFixtureException
 
 class Fixture(object):
     """

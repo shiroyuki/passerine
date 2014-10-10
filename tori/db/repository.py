@@ -4,19 +4,19 @@
 :Status: Stable
 """
 import inspect
-from tori.db.common    import PseudoObjectId, ProxyObject
-from tori.db.criteria  import Query, Order
-from tori.db.exception import MissingObjectIdException, EntityAlreadyRecognized, EntityNotRecognized
-from tori.db.mapper    import AssociationType, CascadingType
-from tori.db.uow       import Record
-from tori.db.metadata.helper import EntityMetadataHelper
+from grosbeak.db.common    import PseudoObjectId, ProxyObject
+from grosbeak.db.criteria  import Query, Order
+from grosbeak.db.exception import MissingObjectIdException, EntityAlreadyRecognized, EntityNotRecognized
+from grosbeak.db.mapper    import AssociationType, CascadingType
+from grosbeak.db.uow       import Record
+from grosbeak.db.metadata.helper import EntityMetadataHelper
 
 class Repository(object):
     """
     Repository (Entity AbstractRepository) for Mongo DB
 
     :param session: the entity manager
-    :type  session: tori.db.session.Session
+    :type  session: grosbeak.db.session.Session
     :param representing_class: the representing class
     :type  representing_class: type
 
@@ -40,7 +40,7 @@ class Repository(object):
     def session(self):
         """ Session
 
-            :rtype: tori.db.session.Session
+            :rtype: grosbeak.db.session.Session
         """
         return self._session
 
@@ -122,7 +122,7 @@ class Repository(object):
         """ Find entity with criteria
 
             :param criteria: the search criteria
-            :type  criteria: tori.db.criteria.Query
+            :type  criteria: grosbeak.db.criteria.Query
             :param force_loading: the flag to force loading all references behind the proxy
             :type  force_loading: bool
 
@@ -160,7 +160,7 @@ class Repository(object):
         """ Count the number of entities satisfied the given criteria
 
             :param criteria: the search criteria
-            :type  criteria: tori.db.criteria.Query
+            :type  criteria: grosbeak.db.criteria.Query
 
             :rtype: int
         """
@@ -265,7 +265,7 @@ class Repository(object):
     def new_criteria(self, alias='e'):
         """ Create a criteria
 
-            :rtype: :class:`tori.db.criteria.Query`
+            :rtype: :class:`grosbeak.db.criteria.Query`
         """
 
         c = Query(alias)
@@ -281,7 +281,7 @@ class Repository(object):
         """ Index data
 
             :param index: the index
-            :type  index: list, tori.db.entity.Index or str
+            :type  index: list, grosbeak.db.entity.Index or str
             :param force_index: force indexing if necessary
             :type  force_index: bool
         """

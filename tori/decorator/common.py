@@ -5,7 +5,7 @@ This package contains decorators for common use.
 """
 
 import inspect
-from   tori.exception import *
+from   grosbeak.exception import *
 
 class BaseDecoratorForCallableObject(object):
     """

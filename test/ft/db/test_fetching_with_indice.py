@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # Obsolete test as the support for indexing will be dropped in 3.1.
 from ft.db.dbtestcase import DbTestCase
-from tori.db.driver.mongodriver import Driver
-from tori.db.session import Session
-from tori.db.common import ProxyObject
-from tori.db.criteria import Criteria, Order
-from tori.db.uow import Record
-from tori.db.entity import entity, Index
-from tori.db.mapper import link, CascadingType, AssociationType
+from grosbeak.db.driver.mongodriver import Driver
+from grosbeak.db.session import Session
+from grosbeak.db.common import ProxyObject
+from grosbeak.db.criteria import Criteria, Order
+from grosbeak.db.uow import Record
+from grosbeak.db.entity import entity, Index
+from grosbeak.db.mapper import link, CascadingType, AssociationType
 
 @entity
 class Author(object):

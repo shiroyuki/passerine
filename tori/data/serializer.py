@@ -1,4 +1,4 @@
-from tori.decorator.common import singleton
+from grosbeak.decorator.common import singleton
 
 @singleton
 class ArraySerializer(object):

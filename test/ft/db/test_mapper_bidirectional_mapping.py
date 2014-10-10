@@ -1,8 +1,8 @@
 from ft.db.dbtestcase import DbTestCase
-from tori.db.common import ProxyObject
-from tori.db.entity import entity
-from tori.db.exception import ReadOnlyProxyException
-from tori.db.mapper import link, CascadingType, AssociationType
+from grosbeak.db.common import ProxyObject
+from grosbeak.db.entity import entity
+from grosbeak.db.exception import ReadOnlyProxyException
+from grosbeak.db.mapper import link, CascadingType, AssociationType
 
 @link(
     mapped_by='destinations',

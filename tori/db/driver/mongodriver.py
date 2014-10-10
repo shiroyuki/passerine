@@ -1,9 +1,9 @@
 import re
 from pymongo import MongoClient
-from tori.db.driver.interface import DriverInterface, QueryIteration, QuerySequence, DialectInterface
-from tori.db.entity import Index
-from tori.db.expression import Criteria, ExpressionOperand, ExpressionType, InvalidExpressionError as InvalidExpressionErrorBase
-from tori.db.metadata.helper import EntityMetadataHelper
+from grosbeak.db.driver.interface import DriverInterface, QueryIteration, QuerySequence, DialectInterface
+from grosbeak.db.entity import Index
+from grosbeak.db.expression import Criteria, ExpressionOperand, ExpressionType, InvalidExpressionError as InvalidExpressionErrorBase
+from grosbeak.db.metadata.helper import EntityMetadataHelper
 
 class InvalidExpressionError(InvalidExpressionErrorBase):
     """ MongoDB-specific Invalid Expression Error """
@@ -199,10 +199,10 @@ class Driver(DriverInterface):
         return api.find(criteria)
 
     def query(self, metadata, query, iterating_constrains):
-        """ Find the data sets with :class:`tori.db.query.Criteria`.
+        """ Find the data sets with :class:`grosbeak.db.query.Criteria`.
 
             :param metadata: the metadata of the target collection / repository
-            :type  metadata: tori.db.metadata.entity.EntityMetadata
+            :type  metadata: grosbeak.db.metadata.entity.EntityMetadata
             :param query: the native query
             :param iterating_constrains: the iterating constrains
         """

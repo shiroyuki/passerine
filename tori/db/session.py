@@ -1,15 +1,15 @@
 
 import re
-from tori.db.common import ProxyObject, ProxyFactory, ProxyCollection
-from tori.db.criteria import Criteria
-from tori.db.repository import Repository
-from tori.db.entity import get_relational_map
-from tori.db.exception import IntegrityConstraintError, UnsupportedRepositoryReferenceError
-from tori.db.mapper import AssociationType
-from tori.db.metadata.entity import EntityMetadata
-from tori.db.metadata.helper import EntityMetadataHelper
-from tori.db.uow import UnitOfWork
-from tori.graph import DependencyNode, DependencyManager
+from grosbeak.db.common import ProxyObject, ProxyFactory, ProxyCollection
+from grosbeak.db.criteria import Criteria
+from grosbeak.db.repository import Repository
+from grosbeak.db.entity import get_relational_map
+from grosbeak.db.exception import IntegrityConstraintError, UnsupportedRepositoryReferenceError
+from grosbeak.db.mapper import AssociationType
+from grosbeak.db.metadata.entity import EntityMetadata
+from grosbeak.db.metadata.helper import EntityMetadataHelper
+from grosbeak.db.uow import UnitOfWork
+from grosbeak.graph import DependencyNode, DependencyManager
 
 class QueryIteration(DependencyNode):
     def __init__(self, join_config, alias, parent_alias, property_path):
@@ -82,7 +82,7 @@ class Session(object):
         """ Retrieve the collection
 
             :param reference: the entity class or entity metadata of the target repository / collection
-            :rtype: tori.db.repository.Repository
+            :rtype: grosbeak.db.repository.Repository
         """
         key = None
 
@@ -117,7 +117,7 @@ class Session(object):
             :param entity_class: the class of document/entity
             :type  entity_class: type
 
-            :rtype: tori.db.repository.Repository
+            :rtype: grosbeak.db.repository.Repository
 
             .. note::
 
@@ -345,7 +345,7 @@ class Session(object):
 
         for property_name in rmap:
             guide = rmap[property_name]
-            """ :type: tori.db.mapper.RelatingGuide """
+            """ :type: grosbeak.db.mapper.RelatingGuide """
 
             # In the reverse mapping, the lazy loading is not possible but so
             # the proxy object is still used.

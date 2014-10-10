@@ -1,9 +1,9 @@
 from ft.db.dbtestcase import DbTestCase
-from tori.db.session import Session
-from tori.db.entity import entity
-from tori.db.manager import Manager
-from tori.db.exception import UOWRepeatedRegistrationError, UOWUnknownRecordError
-from tori.db.uow import Record
+from grosbeak.db.session import Session
+from grosbeak.db.entity import entity
+from grosbeak.db.manager import Manager
+from grosbeak.db.exception import UOWRepeatedRegistrationError, UOWUnknownRecordError
+from grosbeak.db.uow import Record
 
 @entity
 class TestClass(object):

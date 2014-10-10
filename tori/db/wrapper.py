@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.exc import OperationalError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from tori.common import get_logger
+from grosbeak.common import get_logger
 
 Entity = declarative_base()
 
