@@ -4,7 +4,7 @@ Guide
 This section will guide you on how to use the library properly.
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
     :glob:
 
     *
