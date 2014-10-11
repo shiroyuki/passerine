@@ -1,8 +1,8 @@
-# Grosbeak
+# Passerine
 
 A library for object relational mapping and data abstraction layer for Python.
 
-This is forked and spun off from Tori 3.0 (shiroyuki/Tori).
+This is forked and spun off from Tori 3.0 (https://github.com/shiroyuki/Tori).
 
 ## MIT License (OSS Approved)
 

@@ -7,72 +7,10 @@ Code    Definition
 BCB-x.y Backward-compatibility breakage caused by the marked features from version ``x.y``
 ======= ==================================================================================
 
-Version 3.1
+Version 1.0
 ===========
 
-:Release Date: TBA
+:Scheduled Release Date: 2014.12.25
 
-- Possibly removed ``passerine.db.session.Session.register_class(...)``.
-
-Version 3.0
-===========
-
-:Release Date: 2014.08.16
-
-- **ORM/passerine.db**: Allow cross-collection (or cross-repository) queries within the same type of backend datastores.
-- **ORM/passerine.db**: (**BCB-2.1**) Removed the silly preconditions of the setup of ORM.
-- **ORM/passerine.db**: (**BCB-2.1**) The setup of ORM becomes more generic in order to support multiple drivers.
-- **ORM/passerine.db**: (**BCB-2.1**) No auto indexing.
-- **ORM/passerine.db**: (**BCB-2.1**) The query mechanism is changed to reduce the direct access to PyMongo APIs directly. It
-  will be a **BCB** if the code that uses :class:`passerine.db.criteria.Criteria` instantiates the class directly.
-- **ORM/passerine.db**: (**BCB-2.1**) Class **Criteria** has been renamed to **Query** as the internal class will be labeled
-  as **Criteria**. This change is to address the semantic / readability issue. (Hence, all references to Criteria objects
-  are now referred to Query objects.)
-- **ORM/passerine.db**: Removed unused / tedious code from the ORM.
-- **Web Framework**: (**BCB-2.1**) The **simple routing scheme** is now default instead of the **regular expression** originally used by Tornado. (The router class will take care of the translation.)
-- **Web Framework**: The first instance of :class:`passerine.application.Application` is now self-referenced as ``passerine.centre.core``.
-- **Web Framework**: Add a file-base session repository. This allows the app to store the session data as a json file.
-- **Web Framework**: Without specifying the rendering path for each controller, the controller will be looking for
-  templates from :file:`<app_base_path>/templates`.
-- **Web Framework**: Introduce the new-style configuration which is a JSON file. (The old style will be deprecated in 3.2.)
-- **Web Framework**
-- **Tests**: Reorganized the tests and refactored the ORM tests.
-
-New Style Configuration
------------------------
-
-In 3.0, it is required to specify in the configuration in order to use the new style configuration where the default
-configuration tree is:
-
-.. code-block:: javascript
-
-    {
-        "session": {
-            "class": "passerine.session.repository.memory.Memory"
-            "params": {}
-        }
-        "db": {
-            "managers": {}
-        }
-    }
-
-where ``db.managers`` is mapping a alias of the manager to a corresponding DB URL only referred by the database manager factory.
-
-For example, we have :file:`config.json`.
-
-.. code-block:: javascript
-
-    {
-        "db": {
-            "managers": {
-                "db.directory": "mongodb://localhost/directory"
-            }
-        }
-    }
-
-Add this line to the XML configuration file.
-
-.. code-block:: xml
-
-    <use src="config.json"/>
-
+- A fork of Tori ORM
+- (Support Riak 2.0)

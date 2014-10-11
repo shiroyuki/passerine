@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Codename Grosbeak
-=================
+Passerine
+=========
 
 :Author: Juti Noppornpitak <jnopporn@shiroyuki.com>
 
@@ -12,6 +12,14 @@ A generic object relational mapper (ORM) and data abstraction layer (DAL) primar
 
 .. note:: This is a fork from Tori Framework for object-relational mapping.
 .. warning:: Not ready for production
+.. warning:: The whole documentation is being transferred and rewritten from Tori Framework.
+
+.. toctree::
+    :maxdepth: 1
+    :glob:
+
+    */index
+    *
 
 Special Thanks
 --------------
@@ -27,3 +35,11 @@ Indices and Modules
 * :ref:`modindex`
 
 .. * :ref:`search`
+
+.. toctree::
+    :maxdepth: 10
+    :glob:
+    :hidden:
+
+    *
+    */index
