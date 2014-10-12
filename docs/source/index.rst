@@ -18,6 +18,7 @@ A generic object relational mapper (ORM) and data abstraction layer (DAL) primar
     :maxdepth: 1
     :glob:
 
+    architecture
     */index
     *
 
@@ -37,7 +38,7 @@ Indices and Modules
 .. * :ref:`search`
 
 .. toctree::
-    :maxdepth: 10
+    :maxdepth: 1
     :glob:
     :hidden:
 
