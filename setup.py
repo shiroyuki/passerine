@@ -1,26 +1,18 @@
 from distutils.core import setup
 
 setup(
-    name         = 'tori',
-    version      = '3.0.0a2',
-    description  = 'A collection of libraries, a micro web framework based on Tornado framework, and the ORM for MongoDB',
+    name         = 'passerine',
+    version      = '1.0.0a1',
+    description  = 'A generic object relational mapper (ORM) and data abstraction layer (DAL) primarily designed for NoSQL databases.',
     license      = 'MIT',
     author       = 'Juti Noppornpitak',
     author_email = 'juti_n@yahoo.co.jp',
-    url          = 'http://shiroyuki.com/projects/passerine.html',
+    url          = 'https://github.com/shiroyuki/passerine',
     packages     = [
-        'tori',
-        'passerine.cli',
-        'passerine.data',
+        'passerine',
         'passerine.db',
         'passerine.db.driver',
-        'passerine.db.metadata',
-        'passerine.decorator',
-        'passerine.session',
-        'passerine.session.entity',
-        'passerine.session.repository',
-        'passerine.socket',
-        'passerine.template'
+        'passerine.db.metadata'
     ],
     classifiers   = [
         'Development Status :: 5 - Production/Stable',
@@ -34,6 +26,5 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries'
     ],
-    scripts          = ['bin/nest'],
-    install_requires = ['imagination', 'kotoba', 'tornado', 'jinja2', 'pymongo']
+    install_requires = ['pymongo']
 )

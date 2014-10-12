@@ -8,7 +8,7 @@ Set Up the Connection and Entity Manager
 
 .. code-block:: python
 
-    from tori.db.manager import ManagerFactory
+    from passerine.db.manager import ManagerFactory
     manager_factory = ManagerFactory()
 
     # Define the connection URL
@@ -36,7 +36,7 @@ entity classes: **Character** and **Team**.
 
 .. code-block:: python
 
-    from tori.db.entity import entity
+    from passerine.db.entity import entity
 
     @entity
     class Player(object):
@@ -45,7 +45,7 @@ entity classes: **Character** and **Team**.
             self.team = None
 
     @entity('teams')
-    class Team(Object):
+    class Team(object):
         def __init__(self, name, location):
             self.name = name
             self.location = location
