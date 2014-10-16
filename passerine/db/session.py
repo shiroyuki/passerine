@@ -89,7 +89,6 @@ class Session(object):
         if isinstance(reference, EntityMetadata):
             key = reference.collection_name
         elif EntityMetadataHelper.hasMetadata(reference):
-            print('A')
             is_registerable_reference = True
 
             metadata = EntityMetadataHelper.extract(reference)
