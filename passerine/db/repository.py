@@ -118,7 +118,7 @@ class Repository(object):
 
         return self._dehydrate_object(data)
 
-    def find(self, criteria, force_loading=False):
+    def find(self, criteria=None, force_loading=False):
         """ Find entity with criteria
 
             :param criteria: the search criteria
@@ -129,6 +129,9 @@ class Repository(object):
             :returns: the result based on the given criteria
             :rtype: object or list of objects
         """
+        if not criteria:
+            criteria = self.new_criteria()
+
         data_set = self.session.query(criteria)
 
         entity_list = []
