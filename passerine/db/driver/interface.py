@@ -51,7 +51,7 @@ class DialectInterface(object):
     def get_alias_to_native_query_map(self, query):
         """ Retrieve a map from alias to native query.
 
-            :param passerine.db.criteria.Query: the query object
+            :param passerine.db.query.Query: the query object
             :rtype: dict
         """
         expression_set = query.criteria.get_analyzed_version()
