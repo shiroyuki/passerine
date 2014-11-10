@@ -44,11 +44,27 @@ entity classes: **Character** and **Team**.
             self.name = name
             self.team = None
 
+        def __repr__(self):
+            attrs = {
+                'name': self.name,
+                'team': self.team
+            }
+
+            return '<{} {}>'.format(self.__class__.__name__, attrs)
+
     @entity('teams')
     class Team(object):
         def __init__(self, name, location):
             self.name = name
             self.location = location
+
+        def __repr__(self):
+            attrs = {
+                'name': self.name,
+                'location': self.location
+            }
+
+            return '<{} {}>'.format(self.__class__.__name__, attrs)
 
 #. ``@entity`` is to define the decorated class as an entity class. If all entities of this class will be
    saved in the collection, named **character**.

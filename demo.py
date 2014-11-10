@@ -38,16 +38,35 @@ sid = Player('Sid')
 
 session = entity_manager.open_session()
 
-# cleanup
-session.driver.db['player'].drop()
-session.driver.db['teams'].drop()
+# cleanup (for demo-only)
+session.driver.collection('player').drop()
+session.driver.collection('teams').drop()
 
 # Create an entity
 repository = session.repository(Player)
 repository.persist(sid)
 repository.commit()
 
-query = repository.new_criteria('p')
-query.where('p.name = "sid"')
+# Add more entities
+repository.persist(Player('Ramza'))
+repository.persist(Player('Tsunemori'))
+repository.commit()
 
-repository.
+# Query with primitive value
+query = repository.new_criteria('p')
+query.expect('p.name = "Sid"')
+
+result = repository.find(query)
+print(result)
+
+# Query with parameters
+query = repository.new_criteria('p')
+query.expect('p.name = :name')
+query.define('name', 'Sid')
+
+result = repository.find(query)
+print(result)
+
+query.define('name', 'Tsunemori')
+result = repository.find(query)
+print(result)

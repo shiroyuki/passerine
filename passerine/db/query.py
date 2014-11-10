@@ -105,6 +105,8 @@ class Query(object):
             'mapper': None
         }
 
+    # Deprecated
+    # Use "expect()" instead.
     def where(self, key_or_full_condition, filter_data=None):
         """ Define the condition
 
