@@ -4,11 +4,11 @@
 :Status: Stable
 """
 import inspect
-from passerine.db.common    import PseudoObjectId, ProxyObject
-from passerine.db.criteria  import Query, Order
-from passerine.db.exception import MissingObjectIdException, EntityAlreadyRecognized, EntityNotRecognized
-from passerine.db.mapper    import AssociationType, CascadingType
-from passerine.db.uow       import Record
+from passerine.db.common          import PseudoObjectId, ProxyObject
+from passerine.db.query           import Query, Order
+from passerine.db.exception       import MissingObjectIdException, EntityAlreadyRecognized, EntityNotRecognized
+from passerine.db.mapper          import AssociationType, CascadingType
+from passerine.db.uow             import Record
 from passerine.db.metadata.helper import EntityMetadataHelper
 
 class Repository(object):

@@ -1,15 +1,14 @@
 
 import re
-from passerine.db.common import ProxyObject, ProxyFactory, ProxyCollection
-from passerine.db.criteria import Criteria
-from passerine.db.repository import Repository
-from passerine.db.entity import get_relational_map
-from passerine.db.exception import IntegrityConstraintError, UnsupportedRepositoryReferenceError
-from passerine.db.mapper import AssociationType
+from passerine.db.common          import ProxyObject, ProxyFactory, ProxyCollection
+from passerine.db.repository      import Repository
+from passerine.db.entity          import get_relational_map
+from passerine.db.exception       import IntegrityConstraintError, UnsupportedRepositoryReferenceError
+from passerine.db.mapper          import AssociationType
 from passerine.db.metadata.entity import EntityMetadata
 from passerine.db.metadata.helper import EntityMetadataHelper
-from passerine.db.uow import UnitOfWork
-from passerine.graph import DependencyNode, DependencyManager
+from passerine.db.uow             import UnitOfWork
+from passerine.graph              import DependencyNode, DependencyManager
 
 class QueryIteration(DependencyNode):
     def __init__(self, join_config, alias, parent_alias, property_path):
