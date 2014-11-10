@@ -3,11 +3,11 @@
 from ft.db.dbtestcase import DbTestCase
 from passerine.db.driver.mongodriver import Driver
 from passerine.db.session import Session
-from passerine.db.common import ProxyObject
-from passerine.db.criteria import Criteria, Order
-from passerine.db.uow import Record
-from passerine.db.entity import entity, Index
-from passerine.db.mapper import link, CascadingType, AssociationType
+from passerine.db.common  import ProxyObject
+from passerine.db.query   import Order
+from passerine.db.uow     import Record
+from passerine.db.entity  import entity, Index
+from passerine.db.mapper  import link, CascadingType, AssociationType
 
 @entity
 class Author(object):
