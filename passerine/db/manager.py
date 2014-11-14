@@ -21,7 +21,8 @@ class ManagerFactory(object):
     @property
     def _default_protocol_to_driver_map(self):
         return {
-            'mongodb': 'passerine.db.driver.mongodriver.Driver'
+            'mongodb': 'passerine.db.driver.mongodriver.Driver',
+            'riak':    'passerine.db.driver.riakdriver.Driver'
         }
 
     def register(self, protocol, driver_class):

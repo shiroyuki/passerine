@@ -101,8 +101,8 @@ you will now get the different result::
 
     This is the recommended way to query.
 
-Parameterized expectation (range)
----------------------------------
+Range query
+-----------
 
 To do range search, just like the previous examples, you can either hand-code the expectation or rely on the
 parameterization. The following example uses the latter::
@@ -123,8 +123,9 @@ And ``result`` becomes::
         <Player {'level': 6, 'name': 'Tsunemori', 'team': None}>
     ]
 
-Parameterized expectation (in-set)
-----------------------------------
+In-set query (IN operator)
+--------------------------
+
 
 To do in-set search, unlike the previous examples, you can only rely on the parameterization. For example::
 
@@ -140,3 +141,19 @@ And ``result`` becomes::
         <Player {'level': 9, 'name': 'Ramza', 'team': None}>,
         <Player {'level': 6, 'name': 'Tsunemori', 'team': None}>
     ]
+
+Regular-expression query (LIKE operator)
+----------------------------------------
+
+To do in-set search, unlike the previous examples, you can only rely on the parameterization. For example::
+
+    query = repository.new_criteria('p')
+    query.expect('p.name LIKE :name')
+    query.define('name', '^Ra')
+
+    result = repository.find(query)
+
+And ``result`` becomes::
+
+    [<Player {'level': 9, 'name': 'Ramza', 'team': None}>]
+

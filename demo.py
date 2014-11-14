@@ -98,3 +98,10 @@ query.expect('p.level IN :expected_level')
 query.define('expected_level', (6, 9))
 result = repository.find(query)
 print('Index-query multiple.\n{}'.format(result))
+
+# REGEX-query multiple
+query = repository.new_criteria('p')
+query.expect('p.name LIKE :name')
+query.define('name', '^Ra')
+result = repository.find(query)
+print('REGEX-query multiple.\n{}'.format(result))

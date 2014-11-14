@@ -2,11 +2,8 @@ import re
 from pymongo import MongoClient
 from passerine.db.driver.interface import DriverInterface, QueryIteration, QuerySequence, DialectInterface
 from passerine.db.entity import Index
-from passerine.db.expression import Criteria, ExpressionOperand, ExpressionType, InvalidExpressionError as InvalidExpressionErrorBase
+from passerine.db.expression import Criteria, ExpressionOperand, ExpressionType, InvalidExpressionError
 from passerine.db.metadata.helper import EntityMetadataHelper
-
-class InvalidExpressionError(InvalidExpressionErrorBase):
-    """ MongoDB-specific Invalid Expression Error """
 
 class UnsupportedExpressionError(InvalidExpressionErrorBase):
     """ MongoDB-specific Unsupported Expression Error
