@@ -170,20 +170,27 @@ class Repository(object):
         return criteria.build_cursor(self).count()
 
     def filter(self, condition={}, force_loading=False):
+        """ Shortcut method for :method:`find`. """
         criteria = self.new_criteria()
 
         criteria._force_loading = force_loading
 
-        criteria.where(condition)
+        for k in condition:
+            criteria.expect('e.{key} = :{key}'.format(key = k))
+            criteria.define(k, condition[k])
 
         return self.find(criteria)
 
     def filter_one(self, condition={}, force_loading=False):
+        """ Shortcut method for :method:`find`. """
         criteria = self.new_criteria()
 
         criteria._force_loading = force_loading
 
-        criteria.where(condition)
+        for k in condition:
+            criteria.expect('e.{key} = :{key}'.format(key = k))
+            criteria.define(k, condition[k])
+
         criteria.limit(1)
 
         return self.find(criteria)

@@ -1,5 +1,5 @@
-Getting Started
-###############
+1. Getting Started
+##################
 
 Now, you get through the boring stuff. Let's write some code.
 
@@ -40,14 +40,16 @@ entity classes: **Character** and **Team**.
 
     @entity
     class Player(object):
-        def __init__(self, name, team=None):
+        def __init__(self, name, level, team=None):
             self.name = name
             self.team = None
+            self.level = level
 
         def __repr__(self):
             attrs = {
                 'name': self.name,
-                'team': self.team
+                'team': self.team,
+                'level': self.level
             }
 
             return '<{} {}>'.format(self.__class__.__name__, attrs)

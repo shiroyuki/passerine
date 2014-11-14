@@ -370,7 +370,7 @@ class UnitOfWork(object):
             if not c.has_cascading():
                 continue
 
-            c.filter(force_loading=True)
+            c.find(force_loading=True)
 
         commit_order = self._compute_order()
 

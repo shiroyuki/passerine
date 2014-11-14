@@ -105,34 +105,6 @@ class Query(object):
             'mapper': None
         }
 
-    # Deprecated
-    # Use "expect()" instead.
-    def where(self, key_or_full_condition, filter_data=None):
-        """ Define the condition
-
-            .. deprecated:: 3.1
-
-                Starting in Tori 3.0, the new way to query will be.
-
-            :type  key_or_full_condition: str or dict
-            :param key_or_full_condition: either the key of the condition
-                                          (e.g., a field name, $or, $gt etc.)
-            :param filter_data: the filter data associating to the key
-        """
-        if isinstance(key_or_full_condition, dict):
-            if filter_data:
-                raise ValueError('Assuming that the full condition is given, the looking value is not required.')
-
-            self._condition = key_or_full_condition
-
-            return self
-
-        # if this is not a special instruction, append for indexing.
-        if key_or_full_condition[0] != '$':
-            self._indexed_target_list.append(key_or_full_condition)
-
-        self._condition[key_or_full_condition] = filter_data
-
         return self
 
     def order(self, field, direction=Order.ASC):
@@ -214,6 +186,8 @@ class Query(object):
 
         self.criteria.expect(statement)
 
+        return self
+
     def define(self, variable_name=None, value=None, **definition_map):
         """ Define the value of one or more variables (known as parameters).
 
@@ -234,7 +208,7 @@ class Query(object):
 
             .. code-block:: python
 
-
+                criteria.define('foo', 'foo').define('bar', 2)
         """
         is_single_definition = bool(variable_name and value)
         is_batch_definition  = bool(definition_map)
@@ -242,11 +216,11 @@ class Query(object):
         if is_single_definition and not is_batch_definition:
             self.definition_map[variable_name] = value
 
-            return
+            return self
         elif not is_single_definition and is_batch_definition:
             self.definition_map.update(definition_map)
 
-            return
+            return self
 
         raise ValueError('Cannot define one variable or multiple variables at the same time.')
 

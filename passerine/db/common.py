@@ -250,9 +250,10 @@ class ProxyCollection(list):
         collection        = self._session.collection(association_class)
 
         if self._guide.inverted_by:
-            criteria     = collection.new_criteria()
+            criteria = collection.new_criteria()
 
-            criteria.where('destination', self._origin.id)
+            criteria.expect('e.destination = :destination')
+            criteria.define('destination', self._origin.id)
 
             mapping_list = collection.find(criteria)
 

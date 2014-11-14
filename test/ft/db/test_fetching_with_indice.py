@@ -50,7 +50,7 @@ class TestFunctional(DbTestCase):
                 'expected_db_index_count': self.auto_index_count - 1
             },
             {
-                'criteria': repository.new_criteria().where('published_in', 2006).order('name', Order.DESC).order('published_in'),
+                'criteria': repository.new_criteria().expect('e.published_in = 2006').order('name', Order.DESC).order('published_in'),
                 'expected_name': 'Library War',
                 'expected_list_index': 0,
                 'expected_db_index_count': self.auto_index_count - 1

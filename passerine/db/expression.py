@@ -125,7 +125,8 @@ class Criteria(object):
                 like = ExpressionOperand.OP_SQL_LIKE,
                 rlike   = ExpressionOperand.OP_REGEXP_LIKE,
                 indexed = ExpressionOperand.OP_INDEX_SEARCH
-            )
+            ),
+            re.IGNORECASE
         )
         self._re_property_path_delimiter = re.compile('\.')
 

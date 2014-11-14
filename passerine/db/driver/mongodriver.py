@@ -36,8 +36,10 @@ class Dialect(DialectInterface):
                 ExpressionOperand.OP_SQL_LIKE: '$regex'
             })
 
+        generic_operand = generic_operand.lower()
+
         if generic_operand not in self._operand_map:
-            raise RuntimeError('{} operand is not supported for this engine.')
+            raise RuntimeError('{} operand is not supported for this engine.'.format(generic_operand))
 
         return self._operand_map[generic_operand]
 

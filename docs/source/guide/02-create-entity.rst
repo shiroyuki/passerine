@@ -1,5 +1,5 @@
-Create a New Entity
-###################
+2. Create a New Entity
+######################
 
 In the previous step, we have an entity manager (``entity_manager``) and two entity classes (``Player`` and ``Team``).
 Now, we are going to create a new entity.
@@ -8,7 +8,7 @@ Let's create **one player**.
 
 .. code-block:: python
 
-    sid = Player('Sid')
+    sid = Player('Sid', 5)
 
     session = entity_manager.open_session()
     
@@ -54,5 +54,6 @@ be able to see the result on the screen like the following (except ``_id``).
     {
         "_id" : ObjectId("..."),
         "name" : "Sid",
+        "level": 5,
         "team" : null
     }
