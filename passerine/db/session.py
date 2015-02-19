@@ -324,8 +324,6 @@ class Session(object):
             if self._uow.is_new(targeted_entity) \
             else self._uow.register_dirty
 
-        print('NEW' if self._uow.is_new(targeted_entity) else 'OLD')
-
         registering_action(targeted_entity)
 
     def recognize(self, entity):
