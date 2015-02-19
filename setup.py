@@ -13,9 +13,11 @@ setup(
     url          = 'https://github.com/shiroyuki/passerine',
     packages     = [
         'passerine',
+        'passerine.data',
         'passerine.db',
         'passerine.db.driver',
-        'passerine.db.metadata'
+        'passerine.db.metadata',
+        'passerine.decorator',
     ],
     classifiers   = [
         'Development Status :: 5 - Production/Stable',
