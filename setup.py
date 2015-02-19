@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name         = 'passerine',
-    version      = '1.0.0a1',
+    version      = '1.0.0rc1',
     description  = 'A generic object relational mapper (ORM) and data abstraction layer (DAL) primarily designed for NoSQL databases.',
     license      = 'MIT',
     author       = 'Juti Noppornpitak',
@@ -16,7 +16,6 @@ setup(
     ],
     classifiers   = [
         'Development Status :: 5 - Production/Stable',
-        'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
@@ -24,7 +23,8 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-        'Topic :: Software Development :: Libraries'
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Database'
     ],
     install_requires = ['pymongo']
 )
