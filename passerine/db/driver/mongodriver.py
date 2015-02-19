@@ -5,7 +5,7 @@ from passerine.db.entity import Index
 from passerine.db.expression import Criteria, ExpressionOperand, ExpressionType, InvalidExpressionError
 from passerine.db.metadata.helper import EntityMetadataHelper
 
-class UnsupportedExpressionError(InvalidExpressionErrorBase):
+class UnsupportedExpressionError(InvalidExpressionError):
     """ MongoDB-specific Unsupported Expression Error
 
         This is due to that the expression may be unsafe (e.g., 1 = 2) or result

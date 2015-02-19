@@ -52,7 +52,7 @@ be able to see the result on the screen like the following (except ``_id``).
 .. code-block:: javascript
 
     {
-        "_id" : ObjectId("..."),
+        "_id" : ObjectId("abc"),
         "name" : "Sid",
         "level": 5,
         "team" : null

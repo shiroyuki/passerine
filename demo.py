@@ -1,3 +1,4 @@
+import sys
 from passerine.db.entity  import entity
 from passerine.db.manager import ManagerFactory
 

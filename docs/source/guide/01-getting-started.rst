@@ -41,14 +41,14 @@ entity classes: **Character** and **Team**.
     @entity
     class Player(object):
         def __init__(self, name, level, team=None):
-            self.name = name
-            self.team = None
+            self.name  = name
+            self.team  = team
             self.level = level
 
         def __repr__(self):
             attrs = {
-                'name': self.name,
-                'team': self.team,
+                'name':  self.name,
+                'team':  self.team,
                 'level': self.level
             }
 

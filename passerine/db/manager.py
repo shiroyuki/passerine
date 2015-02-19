@@ -1,3 +1,4 @@
+from contextlib import contextmanager
 import re
 from bson.objectid import ObjectId
 from imagination.loader import Loader
@@ -22,7 +23,7 @@ class ManagerFactory(object):
     def _default_protocol_to_driver_map(self):
         return {
             'mongodb': 'passerine.db.driver.mongodriver.Driver',
-            'riak':    'passerine.db.driver.riakdriver.Driver'
+            #'riak':    'passerine.db.driver.riakdriver.Driver'
         }
 
     def register(self, protocol, driver_class):
@@ -91,6 +92,12 @@ class Manager(object):
         """
         return self._driver
 
+    @contextmanager
+    def session(self, id=None, supervised=False):
+        session = self.open_session(id, supervised)
+        yield session
+        self.close_session(id)
+
     def open_session(self, id=None, supervised=False):
         """ Open a session
 
@@ -118,7 +125,7 @@ class Manager(object):
 
         return session
 
-    def close_session(self, id_or_session):
+    def close_session(self, id):
         """ Close the managed session
 
             .. warning::
@@ -126,9 +133,7 @@ class Manager(object):
                 This method is designed to bypass errors when the given ID is
                 unavailable or already closed.
         """
-        id = id_or_session.id if isinstance(id_or_session, Session) else id_or_session
-
-        if not id or id not in self._session_map:
+        if id not in self._session_map:
             return
 
         del self._session_map[id]

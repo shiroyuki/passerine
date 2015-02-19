@@ -157,3 +157,11 @@ And ``result`` becomes::
 
     [<Player {'level': 9, 'name': 'Ramza', 'team': None}>]
 
+To just retrieve everything, you can either do::
+
+    query = repository.new_criteria()
+    repository.find(query)
+
+or just go with::
+
+    repository.find(query)
