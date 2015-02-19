@@ -1,3 +1,5 @@
 mock>=1.0.1
 nose>=1.2.1
 pymongo>=2.5
+kotoba>=3.0.1
+imagination>=1.8.0
