@@ -10,7 +10,7 @@ Passerine
 
 A generic object relational mapper (ORM) and data abstraction layer (DAL) primarily designed for NoSQL databases.
 
-.. note:: This is a fork from the object-relational mapping module of Tori Framework 3.0.
+You can **install Passerine** by running ``pip install passerine``.
 
 .. toctree::
     :maxdepth: 1
