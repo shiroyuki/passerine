@@ -1,15 +1,17 @@
-from riak import RiakClient
-from passerine.db.manager import register_driver as driver
+try:
+    from riak import RiakClient
+except ImportError as exception:
+    pass # work in progress
+
 from passerine.db.driver.interface import DriverInterface
 
-@driver('mongodb')
 class Driver(DriverInterface):
     def db(self, name):
         return None
-    
+
     def collection(self, name):
         return self._client.bucket(name)
-    
+
     def insert(self, collection_name, data):
         riak_object = self.collection(collection_name).new(data=inserted_data)
         riak_object.store()

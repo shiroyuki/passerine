@@ -1,9 +1,10 @@
 4. Associations and Relational Mappings
 #######################################
 
-Usually data from different collections are related and may co-exist. As the result, even though some database
-softwares do not allow associations, Passerine allows the software-based relational mapping. This ORM supports
-all types of relational mapping either unidirectionally or bidirectionally.
+Usually data from different collections are related and may co-exist. As the
+result, even though some database softwares do not allow associations, Passerine
+allows the software-based relational mapping. This ORM supports all types of
+relational mapping either unidirectionally or bidirectionally.
 
 Passerine ORM utilizes two patterns to implement association.
 
@@ -11,9 +12,9 @@ Passerine ORM utilizes two patterns to implement association.
 * Lazy loading to load data when it is requested.
 * Proxy object as direct result of lazy loading.
 
-In general, the decorator :meth:`passerine.db.mapper.link` is used to define association by mapping decorated
-fields to another classes by primary key (or object ID). The ID-to-object happens automatically during data
-mapping.
+In general, the decorator :meth:`passerine.db.mapper.link` is used to define
+association by mapping decorated fields to another classes by primary key (or
+object ID). The ID-to-object happens automatically during data mapping.
 
 Types of Associations
 =====================
@@ -303,9 +304,31 @@ where the stored data can be like the following example:
 Bidirectional
 ~~~~~~~~~~~~~
 
-Implemented in Tori 2.1 (See the usage from https://github.com/shiroyuki/Tori/issues/27).
+.. code-block:: python
 
-.. TODO:: update this section
+    @link(
+        mapped_by   = 'students',
+        inverted_by = 'teachers',
+        target      = 'sampleapp.model',
+        association = AssociationType.MANY_TO_MANY
+    )
+    @entity('teachers')
+    class Teacher(object):
+        def __init__(self, name, students=[]):
+            self.name     = name
+            self.students = students
+
+    @link(
+        mapped_by   = 'teachers',
+        target      = Teacher,
+        association = AssociationType.MANY_TO_MANY,
+        cascading   = [c.DELETE, c.PERSIST]
+    )
+    @entity('students')
+    class Student(object):
+        def __init__(self, name, teachers=[]):
+            self.name     = name
+            self.teachers = teachers
 
 Options for Associations
 ========================
@@ -326,8 +349,6 @@ target      the full name of class or the actual class
 How to make a join query
 ========================
 
-.. versionadded:: 3.0
-
 From the customer-reward example, if we want to find all rewards of a particular
 user, the query will be::
 
@@ -337,4 +358,4 @@ user, the query will be::
 
     rewards = reward_repository.find(query)
 
-
+All features for querying is usable with joined entities.

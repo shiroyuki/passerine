@@ -1,3 +1,6 @@
+# To run invidual test, try:
+# 	make TEST_FLAGS=ft/db/test_issue_27.py test_py2
+
 TEST_FLAGS=""
 
 package:

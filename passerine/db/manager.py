@@ -27,6 +27,11 @@ class ManagerFactory(object):
         }
 
     def register(self, protocol, driver_class):
+        """ Register the protocol to the driver class.
+
+            :param str protocol:     the protocol string (e.g., mongodb, riak)
+            :param passerine.db.driver.interface.DriverInterface driver_class: a DriverInterface-based class (type)
+        """
         self._protocol_to_driver_map[protocol] = driver_class \
             if isinstance(driver_class, type) \
             else Loader(driver_class).package
@@ -94,20 +99,32 @@ class Manager(object):
 
     @contextmanager
     def session(self, id=None, supervised=False):
+        """ Open a session in the context manager.
+
+            :param id: the session ID
+            :param bool supervised: the flag to indicate that the opening session
+                                    will be observed and supervised by the manager.
+                                    This allows the session to be reused by multiple
+                                    components. However, it is not **thread-safe**.
+                                    It is disabled by default.
+
+            .. note:: The end of the context will close the open session.
+        """
         session = self.open_session(id, supervised)
+
         yield session
+
         self.close_session(id)
 
     def open_session(self, id=None, supervised=False):
         """ Open a session
 
             :param id: the session ID
-            :param supervised: the flag to indicate that the opening session
-                               will be observed and supervised by the manager.
-                               This allows the session to be reused by multiple
-                               components. However, it is not **thread-safe**.
-                               It is disabled by default.
-            :type  supervised: bool
+            :param bool supervised: the flag to indicate that the opening session
+                                    will be observed and supervised by the manager.
+                                    This allows the session to be reused by multiple
+                                    components. However, it is not **thread-safe**.
+                                    It is disabled by default.
         """
         if not supervised:
             return Session(self.driver)

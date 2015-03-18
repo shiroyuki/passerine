@@ -10,9 +10,7 @@ Passerine
 
 A generic object relational mapper (ORM) and data abstraction layer (DAL) primarily designed for NoSQL databases.
 
-.. note:: This is a fork from Tori Framework for object-relational mapping.
-.. warning:: Not ready for production
-.. warning:: The whole documentation is being transferred and rewritten from Tori Framework.
+.. note:: This is a fork from the object-relational mapping module of Tori Framework 3.0.
 
 .. toctree::
     :maxdepth: 1
@@ -25,9 +23,8 @@ A generic object relational mapper (ORM) and data abstraction layer (DAL) primar
 Special Thanks
 --------------
 
-This project is not possible without helps and guidance from
-`Guilherme Blanco <http://phpork.net/>`_ from
-`Doctrine (PHP) <http://doctrine-project.org>`_.
+This project is not possible without helps and guidance from Guilherme Blanco
+from `Doctrine Project <http://doctrine-project.org>`_.
 
 Indices and Modules
 -------------------

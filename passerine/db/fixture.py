@@ -1,12 +1,20 @@
 """
 :Author: Juti Noppornpitak
+
+.. warning::
+
+    Not in used.
 """
 
 import re
 
-from imagination.loader    import Loader
-from passerine.centre           import services
-from passerine.exception        import LoadedFixtureException
+from imagination.loader  import Loader
+from passerine.exception import LoadedFixtureException
+
+try:
+    from passerine.centre    import services
+except ImportError as exception:
+    pass
 
 class Fixture(object):
     """

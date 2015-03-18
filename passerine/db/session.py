@@ -113,8 +113,7 @@ class Session(object):
     def register_class(self, entity_class):
         """ Register the entity class
 
-            :param entity_class: the class of document/entity
-            :type  entity_class: type
+            :param type entity_class: the class of document/entity
 
             :rtype: passerine.db.repository.Repository
 
@@ -135,6 +134,13 @@ class Session(object):
             self._registered_types[key] = entity_class
 
     def query(self, query):
+        """ Query the data
+
+            :param passerine.db.query.Query query: the query object
+
+            :return: the list of matched entities
+            :rtype: list
+        """
         metadata = EntityMetadataHelper.extract(query.origin)
 
         # Deprecated in Tori 3.1; Only for backward compatibility
@@ -162,9 +168,6 @@ class Session(object):
 
         iterating_sequence = self._compute_iterating_sequence(query.join_map)
         alias_to_query_map = self.driver.dialect.get_alias_to_native_query_map(query)
-
-        for alias in query.join_map:
-            mapping = query.join_map[alias]
 
         for iteration in iterating_sequence:
             if not self._sub_query(query, alias_to_query_map, iteration):
