@@ -218,7 +218,6 @@ class Repository(object):
         self.commit()
 
     def persist(self, entity):
-        self._recognize_entity(entity)
         self._session.persist(entity)
 
     def commit(self):
