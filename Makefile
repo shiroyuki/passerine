@@ -25,7 +25,7 @@ test_py2: cache_clean
 	nosetests -c nose.cfg $(TEST_FLAGS)
 
 test_py3: cache_clean
-	nosetests-3.3 -c nose.cfg $(TEST_FLAGS) || nosetests-3.4 -c nose.cfg
+	nosetests-3.4 -c nose.cfg $(TEST_FLAGS) || nosetests-3.4 -c nose.cfg
 
 test_ci: cache_clean install_test_package reset_mongodb
 	nosetests -c nose.cfg ut/db

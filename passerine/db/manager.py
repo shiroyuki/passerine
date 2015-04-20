@@ -154,3 +154,18 @@ class Manager(object):
             return
 
         del self._session_map[id]
+
+    def get_repository(self, reference_class):
+        """ Retrieve the repository with an unsupervised session.
+
+            :rtype: passerine.db.repository.Repository
+
+            .. note::
+
+                With an unsupervised session, the memory usage may be higher than
+                usual as the memory reference may not be freed as long as the reference
+                to the returned repository continues to exist in active threads.
+        """
+        loose_session = self.open_session()
+
+        return loose_session.repository(reference_class)

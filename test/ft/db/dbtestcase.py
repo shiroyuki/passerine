@@ -1,14 +1,14 @@
 from unittest import TestCase, skip
-from pymongo import Connection
+from pymongo import MongoClient
 from passerine.db.driver.mongodriver import Driver
 from passerine.db.session import Session
 
 class DbTestCase(TestCase):
     verify_data = False
-    connection = Connection() # used for setup-cleanup operation
+    connection  = MongoClient() # used for setup-cleanup operation
     default_collection_name = 't3test'
-    session = None
-    driver = None
+    session     = None
+    driver      = None
 
     def open_driver(self):
         self.driver = Driver({'name': self.default_collection_name})
