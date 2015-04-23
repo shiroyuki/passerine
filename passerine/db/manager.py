@@ -155,10 +155,17 @@ class Manager(object):
 
         del self._session_map[id]
 
-    def get_repository(self, reference_class):
-        """ Retrieve the repository with an unsupervised session.
+    def get_repository(self, ref_class, session_id=None):
+        """ Retrieve the repository.
+
+            :param type ref_class: The reference class
+            :param session_id:     The supervised session ID
 
             :rtype: passerine.db.repository.Repository
+
+            .. note::
+
+                This is designed for Imagination's factorization.
 
             .. note::
 
@@ -166,6 +173,6 @@ class Manager(object):
                 usual as the memory reference may not be freed as long as the reference
                 to the returned repository continues to exist in active threads.
         """
-        loose_session = self.open_session()
+        loose_session = self.open_session(session_id, bool(session_id))
 
-        return loose_session.repository(reference_class)
+        return loose_session.repository(ref_class)
