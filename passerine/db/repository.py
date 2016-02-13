@@ -81,13 +81,13 @@ class Repository(object):
                 This method deal with data mapping.
 
         """
-        spec = inspect.getargspec(self._class.__init__) # constructor contract
         meta = EntityMetadataHelper.extract(self._class)
         rmap = meta.relational_map # relational map
+        args = [(name, default) for name, default in self._get_constructor_arguments(self._class)]
 
         # Default missing argument to NULL or LIST
         # todo: respect the default value of the argument
-        for argument_name in spec.args:
+        for argument_name, default_value in args:
             if argument_name == 'self' or argument_name in attributes:
                 continue
 
@@ -97,18 +97,39 @@ class Repository(object):
                     AssociationType.MANY_TO_MANY
                 ]
 
-            attributes[argument_name] = [] if default_to_list else None
+            attributes[argument_name] = [] if default_to_list else default_value
 
         attribute_name_list = list(attributes.keys())
+        known_arguments     = [name for name, _ in args]
 
         # Remove unwanted arguments/attributes/properties
         for attribute_name in attribute_name_list:
-            if argument_name == 'self' or attribute_name in spec.args:
+            if argument_name == 'self' or attribute_name in known_arguments:
                 continue
 
             del attributes[attribute_name]
 
+        print(attributes.keys(), known_arguments)
+
         return self._class(**attributes)
+
+    def _get_constructor_arguments(self, cls):
+        try: # Python 3 Approach
+            signature = inspect.signature(cls.__init__)
+
+            for k in signature.parameters:
+                parameter = signature.parameters[k]
+                default   = parameter.default if parameter.default != inspect.Parameter.empty else None
+
+                yield (parameter.name, default)
+        except AttributeError as e: # Python 2 Approach
+            spec = inspect.getargspec(cls.__init__)
+            index = 0
+
+            for name in spec.args:
+                yield (name, spec.defaults[index])
+
+                index += 1
 
     def get(self, id):
         data = self._session.driver.find_one(self.name, {'_id': id})
