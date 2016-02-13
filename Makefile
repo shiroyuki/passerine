@@ -9,7 +9,7 @@ package:
 release:
 	$(PY) setup.py sdist upload
 
-wheel_release:
+release-wheel:
 	$(PY) setup.py sdist bdist_wheel upload
 
 doc: clean
