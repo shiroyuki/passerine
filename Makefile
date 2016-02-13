@@ -18,7 +18,7 @@ doc: clean
 doc-update:
 	cd docs && make html
 
-test-local: clean reset-mongodb
+test-local: reset-mongodb
 	nosetests -x -w . ./test/ut/db ./test/ft/db
 
 install_test_package:
@@ -30,11 +30,9 @@ reset-mongodb:
 install:
 	python setup.py install --optimize 2 --compile
 
-cache_clean:
+clean:
+	rm -Rf MANIFEST build dist docs/build/* || echo "Nothing to clean"
 	find . -name *.pyc -exec rm {} \;
-
-clean: cache_clean
-	rm -Rf MANIFEST build dist docs/build/*
 	find . -name __pycache__ -exec rm -Rf {} \;
 	find . -name .DS_Store -exec rm {} \;
 	find . -name ._* -exec rm {} \;
