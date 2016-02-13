@@ -1,12 +1,15 @@
 language: python
 python:
   - "nightly"
+  - "3.5-dev"
   - "3.5"
   - "3.4"
   - "3.3"
   - "2.7"
+  - "pypy"
 services:
   - mongodb
 install:
   - "pip install --ignore-installed -r requirements.txt"
-script: "make test-local"
+  - "pip install --ignore-installed ."
+script: make test-local
