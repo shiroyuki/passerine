@@ -8,13 +8,21 @@ from passerine.db.session import Session
 from passerine.db.exception import InvalidUrlError, UnknownDriverError
 
 class ManagerFactory(object):
-    def __init__(self, protocol_to_driver_map = None):
+    """ Manager Factory
+
+        :param dict urls:      the alias-to-endpoint-URL map
+        :param dict protocols: the protocol-to-fully-qualified-module-path map
+    """
+    def __init__(self, urls = None, protocols = None):
         self._protocol_to_driver_map = {}
-        self._alias_to_url_map       = {}
         self._alias_to_manager_map   = {}
+
+        # Clone the map to ensure that the map cannot be tempered easily from the external code.
+        self._alias_to_url_map = dict(urls or {})
+
         self._re_url = re.compile('(?P<protocol>[a-zA-Z]+)://(?P<address>.+)')
 
-        p2d_map = (protocol_to_driver_map or self._default_protocol_to_driver_map)
+        p2d_map = (protocols or self._default_protocol_to_driver_map)
 
         for protocol in p2d_map:
             self.register(protocol, p2d_map[protocol])
@@ -23,7 +31,7 @@ class ManagerFactory(object):
     def _default_protocol_to_driver_map(self):
         return {
             'mongodb': 'passerine.db.driver.mongodriver.Driver',
-            #'riak':    'passerine.db.driver.riakdriver.Driver'
+            #'riak':    'passerine.db.driver.riakdriver.Driver',
         }
 
     def register(self, protocol, driver_class):
@@ -114,7 +122,12 @@ class Manager(object):
 
         yield session
 
-        self.close_session(id)
+        if id:
+            self.close_session(id)
+
+            return
+
+        del session
 
     def open_session(self, id=None, supervised=False):
         """ Open a session

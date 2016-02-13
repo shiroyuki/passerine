@@ -12,7 +12,7 @@ if pattern[:5] != 'test_':
 if pattern[-3:] != '.py':
     pattern = pattern + '.py'
 
-from tori import common
+from passerine import common
 
 common.default_logging_level = logging.ERROR
 

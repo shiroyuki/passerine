@@ -1,41 +1,30 @@
 # To run invidual test, try:
 # 	make TEST_FLAGS=ft/db/test_issue_27.py test_py2
-
-TEST_FLAGS=""
+PY=python3
 
 package:
 	# For development only
-	python setup.py sdist
+	$(PY) setup.py sdist
 
 release:
-	python setup.py sdist upload
+	$(PY) setup.py sdist upload
 
 wheel_release:
-	python setup.py sdist bdist_wheel upload
+	$(PY) setup.py sdist bdist_wheel upload
 
 doc: clean
 	cd docs && make clean && make html
 
-doc_update:
+doc-update:
 	cd docs && make html
 
-test: test_py2
-
-test_py2: cache_clean
-	nosetests -c nose.cfg $(TEST_FLAGS)
-
-test_py3: cache_clean
-	nosetests-3.4 -c nose.cfg $(TEST_FLAGS) || nosetests-3.4 -c nose.cfg
-
-test_ci: cache_clean install_test_package reset_mongodb
-	nosetests -c nose.cfg ut/db
-	nosetests -c nose.cfg ft/db
-	#nosetests -c nose.cfg
+test-local: clean reset-mongodb
+	nosetests -x -w . ./test/ut/db ./test/ft/db
 
 install_test_package:
-	python setup_for_test_only.py install --optimize 2 --compile
+	python setup_for_test_only.py install --compile
 
-reset_mongodb:
+reset-mongodb:
 	mongo t3test --eval 'db.dropDatabase()' > /dev/null
 
 install:
