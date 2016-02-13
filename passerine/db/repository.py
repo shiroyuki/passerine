@@ -109,8 +109,6 @@ class Repository(object):
 
             del attributes[attribute_name]
 
-        print(attributes.keys(), known_arguments)
-
         return self._class(**attributes)
 
     def _get_constructor_arguments(self, cls):
@@ -127,7 +125,7 @@ class Repository(object):
             index = 0
 
             for name in spec.args:
-                yield (name, spec.defaults[index])
+                yield (name, None) # NOTE Not supporting the default value for Python 2.7 and older.
 
                 index += 1
 

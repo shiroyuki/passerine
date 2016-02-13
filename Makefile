@@ -21,6 +21,9 @@ doc-update:
 test-local: reset-mongodb
 	nosetests -x -w . ./test/ut/db ./test/ft/db
 
+test-py2: reset-mongodb
+	python -m unittest discover -f -s . test
+
 install_test_package:
 	python setup_for_test_only.py install --compile
 

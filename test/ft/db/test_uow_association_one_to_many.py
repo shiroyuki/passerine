@@ -100,42 +100,22 @@ class TestDbUowAssociationOneToMany(DbTestCase):
 
         boss = c.filter_one({'name': 'boss'})
 
-        print('point a')
-
-        for d in c.driver.find(c.name, {}):
-            print(d)
-
         boss.delegates[0].name = 'assistant'
 
         boss.delegates.append(Developer('c'))
 
         self.session.persist(boss)
 
-        print('point b')
-
-        for d in c.driver.find(c.name, {}):
-            print(d)
-
         architect = Developer('architect', delegates=[boss.delegates[0]])
 
         self.session.persist(architect)
         self.session.flush()
-
-        print('point c')
-
-        for d in c.driver.find(c.name, {}):
-            print(d)
 
         self.session.delete(architect)
         self.session.delete(boss)
         self.session.flush()
 
         count = len(c.filter())
-
-        print('point d')
-
-        for d in c.driver.find(c.name, {}):
-            print(d)
 
         self.assertEqual(0, count, 'There should not exist dependencies left (orphan removal). (remaining: {})'.format(count))
 

@@ -49,8 +49,6 @@ class TestUnit(TestCase):
 
         for raw in data_sets:
             with self.assertRaises(InvalidExpressionError):
-                print('{}: {}'.format(index, raw))
-
                 index += 1
 
                 compiled = self.expr._compile(raw)
