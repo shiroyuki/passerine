@@ -67,9 +67,19 @@ class ManagerFactory(object):
         raise UnknownDriverError('Unable to connect to {}'.format(url))
 
     def set(self, alias, url):
+        """ Define the database endpoint URL to a manager (identified by the given alias).
+
+            :param str alias: the alias of the manager.
+            :param str url:   the URL to the endpoint
+        """
         self._alias_to_url_map[alias] = url
 
     def get(self, alias):
+        """ Retrieve the database by the manager alias.
+
+            :param str alias: the alias of the manager.
+            :rtype: passerine.db.manager.Manager
+        """
         return self.connect(self._alias_to_url_map[alias], alias)
 
     def connect(self, url, alias = None):
@@ -86,6 +96,8 @@ class ManagerFactory(object):
 
 class Manager(object):
     """ Entity Manager
+
+        This is to manage the unit-of-work session.
 
         :param driver: the driver interface
         :type  driver: passerine.db.driver.interface.DriverInterface

@@ -1,6 +1,6 @@
 """
 :mod:`passerine.db.criteria` -- Query Criteria
-=========================================
+==============================================
 
 .. module:: passerine.db.criteria
    :platform: All
