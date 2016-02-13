@@ -28,7 +28,7 @@ reset-mongodb:
 	mongo t3test --eval 'db.dropDatabase()' > /dev/null
 
 install:
-	python setup.py install --optimize 2 --compile
+	$(PY) setup.py install --compile
 
 clean:
 	rm -Rf MANIFEST build dist docs/build/* || echo "Nothing to clean"
