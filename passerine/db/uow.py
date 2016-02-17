@@ -97,19 +97,18 @@ class UnitOfWork(object):
         self._object_id_map = {} # str(ObjectID) => Object Hash
         self._dependency_map = None
 
-        # Locks
-        self._blocker_activated = False
+        # synchronizations
         self._blocking_lock     = ThreadLock()
         self._operational_lock  = ThreadLock()
 
     def _freeze(self):
-        if not self._blocker_activated:
+        if not self._blocking_lock.locked():
             return
 
         self._operational_lock.acquire()
 
     def _unfreeze(self):
-        if not self._blocker_activated:
+        if not self._blocking_lock.locked():
             return
 
         self._operational_lock.release()
@@ -341,28 +340,34 @@ class UnitOfWork(object):
     def hydrate_entity(self, reference):
         return reference._actual if isinstance(reference, ProxyObject) else reference
 
-    def commit(self):
-        self._blocking_lock.acquire()
+    def commit(self, sync_mode = True, check_associations = True):
+        """ Commit the changes.
 
-        self._blocker_activated = True
+            .. warning::
 
-        self._freeze()
+                Both flags should not be set to False.
+
+            :param bool sync_mode:          Enable the synchronous mode. (default: True)
+            :param bool check_associations: Check the associations. (default: True)
+        """
+        if sync_mode:
+            self._blocking_lock.acquire()
+            self._freeze()
 
         # Make changes on the normal entities.
         self._commit_changes()
 
         # Then, make changes on external associations.
-        self._add_or_remove_associations()
-        self._commit_changes(BasicAssociation)
+        if check_associations:
+            self._add_or_remove_associations()
+            self._commit_changes(BasicAssociation)
 
         # Synchronize all records
         self._synchronize_records()
 
-        self._unfreeze()
-
-        self._blocker_activated = False
-
-        self._blocking_lock.release()
+        if sync_mode:
+            self._unfreeze()
+            self._blocking_lock.release()
 
     def _commit_changes(self, expected_class=None):
         # Load the sub graph of supervised collections.

@@ -21,6 +21,9 @@ doc-update:
 test-local: reset-mongodb
 	nosetests -x -w . ./test/ut/db ./test/ft/db
 
+test-local-mp: reset-mongodb
+	nosetests -x -w . --processes=2 ./test/ut/db ./test/ft/db
+
 test-py2: reset-mongodb
 	python -m unittest discover -f -s . test
 

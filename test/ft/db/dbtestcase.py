@@ -4,14 +4,17 @@ from passerine.db.driver.mongodriver import Driver
 from passerine.db.session import Session
 
 class DbTestCase(TestCase):
+    default_collection_name = 't3test'
     verify_data = False
     connection  = MongoClient() # used for setup-cleanup operation
-    default_collection_name = 't3test'
     session     = None
     driver      = None
 
+    def collection_name(self):
+        return self.default_collection_name
+
     def open_driver(self):
-        self.driver = Driver({'name': self.default_collection_name})
+        self.driver = Driver({'name': self.collection_name()})
         self.driver.connect()
 
     def close_driver(self):
@@ -21,13 +24,13 @@ class DbTestCase(TestCase):
         self._setUp()
 
     def _setUp(self):
-        self.connection.drop_database(self.default_collection_name)
+        self.connection.drop_database(self.collection_name())
         self.open_driver()
         self.session = Session(self.driver)
 
     def tearDown(self):
         if not self.verify_data:
-            self.connection.drop_database(self.default_collection_name)
+            self.connection.drop_database(self.collection_name())
 
         self.close_driver()
 

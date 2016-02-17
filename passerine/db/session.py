@@ -332,10 +332,12 @@ class Session(object):
     def recognize(self, entity):
         self._uow.register_clean(self._force_load(entity))
 
-    def flush(self):
+    def flush(self, *args, **kwargs):
         """ Flush all changes of the session.
+
+            See the flag from :method:`passerine.db.uow.UnitOfWork.commit`.
         """
-        self._uow.commit()
+        self._uow.commit(*args, **kwargs)
 
     def find_record(self, id, cls):
         return self._uow.find_recorded_entity(id, cls)

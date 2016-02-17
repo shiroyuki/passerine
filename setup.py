@@ -5,7 +5,7 @@ except:
 
 setup(
     name         = 'passerine',
-    version      = '1.4.1',
+    version      = '1.4.2',
     description  = 'A generic object relational mapper (ORM) and data abstraction layer (DAL) primarily designed for NoSQL databases.',
     license      = 'MIT',
     author       = 'Juti Noppornpitak',
